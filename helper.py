@@ -24,3 +24,10 @@ def fetch_stats(selected_user, df):
     no_of_links = len(links)
 
     return no_of_msg, no_of_words, no_of_media, no_of_links
+
+
+def most_active_users(df):
+    x = df['user'].value_counts().head()
+    percent = (df['user'].value_counts() / df.shape[0]) * 100
+    df = round(percent, 2).reset_index().rename(columns={'index': 'user', 'user': 'percent'})
+    return x, df
