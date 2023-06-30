@@ -55,3 +55,11 @@ if uploaded_file is not None:
         st.title("Percent of User's Message")
         st.checkbox("Use container width", value=False, key="use_container_width")
         st.dataframe(percent_df, use_container_width=st.session_state.use_container_width)
+
+    # Generating Word Cloud
+
+    st.title("Word Cloud")
+    df_wc = helper.create_wordcloud(selected_user, df)
+    fig, ax = plt.subplots()
+    ax.imshow(df_wc)
+    st.pyplot(fig)

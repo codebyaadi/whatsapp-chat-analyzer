@@ -1,4 +1,5 @@
 from urlextract import URLExtract
+from wordcloud import WordCloud
 extractor = URLExtract()
 
 
@@ -31,3 +32,14 @@ def most_active_users(df):
     percent = (df['user'].value_counts() / df.shape[0]) * 100
     df = round(percent, 2).reset_index().rename(columns={'index': 'user', 'user': 'percent'})
     return x, df
+
+
+def create_wordcloud(selected_user, df):
+
+    if selected_user != 'Overall':
+
+        df = df[df['user'] == selected_user]
+
+    wc = WordCloud(width=500, height=500, min_font_size=10, background_color='white')
+    df_wc = wc.generate(df['message'].str.cat(sep=" "))
+    return df_wc
