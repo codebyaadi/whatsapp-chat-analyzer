@@ -16,7 +16,7 @@ WhatsApp Chat Analyzer is a web application built with Streamlit and Python that
 - Streamlit
 - Pandas
 - NLTK
-- Matplotlib (or any other libraries you have used)
+- Matplotlib (and many others libraries)
 
 ## Contributing
 
